@@ -1,1 +1,116 @@
+ Session 6: Exploring and Cleaning Data with Pandas
 
+ Overview
+
+This repository contains materials and exercises from **Session 6**, focusing on the use of the Pandas library for data analysis and preprocessing. The exercises cover a range of real-world data scenarios, including cleaning, transforming, and summarizing datasets.
+
+
+Topics Covered
+
+1. Introduction to Pandas:
+   - Understanding `DataFrame` and `Series`.
+   - Overview of Pandas' capabilities in handling 1D and 2D data structures.
+
+2. Loading and Exploring Datasets:
+   - Reading datasets from different file formats (e.g., CSV, Excel).
+   - Exploring data with descriptive statistics and initial analysis.
+
+3. Data Cleaning and Preprocessing:
+   - Handling missing data.
+   - Filtering and transforming data.
+   - Grouping and aggregating.
+   - Merging and joining datasets.
+   - Reshaping datasets.
+
+---
+
+Key Features of Pandas
+
+Pandas provides extensive tools for data manipulation and analysis, including:
+- Missing Data Handling: Identify and fill or drop missing values.
+- DataFrame Resizing: Add or remove rows and columns.
+- Group and Aggregate Operations: Summarize and analyze subsets of data.
+- Advanced Indexing: Slice, filter, and locate data with complex conditions.
+- Time Series Manipulation: Analyze and transform time-based data.
+- Data Integration: Merge, join, and concatenate datasets.
+- Data Export: Read/write data to/from formats like CSV, Excel, and HDF5.
+
+---
+
+Exercises
+
+Netflix Dataset Exercises
+
+1. **Is there any missing rating?**
+   - **Objective**: Identify rows with missing values in the `rating` column.
+   - **Method**: Use Pandas' `isnull()` and `sum()` functions to count missing values.
+
+2. **How many films in 2021 correspond to your country?**
+   - **Objective**: Filter movies released in 2021 and produced in a specific country.
+   - **Method**: Use `query()` or filtering operations on the `release_year` and `country` columns.
+
+3. **What's the number of movies in 2020 with full information?**
+   - **Objective**: Count movies from 2020 with no missing values in any column.
+   - **Method**: Use `dropna()` to remove rows with missing data, then filter by year.
+
+4. **Give me the year with more titles.**
+   - **Objective**: Find the year with the highest number of movie releases.
+   - **Method**: Group data by `release_year`, use `size()` to count titles, and identify the year with the maximum count.
+
+5. **What has been the average number of releases from 2010?**
+   - **Objective**: Calculate the average number of titles released per year since 2010.
+   - **Method**: Filter years >= 2010, group by year, and calculate the mean using `groupby()` and `mean()`.
+
+---
+
+Titanic Dataset Exercises
+
+1. **Calculate Gender-Based Survival Percentage**:
+   - **Objective**: Compute the survival rate for each gender.
+   - **Method**: Group data by `gender`, then calculate the ratio of survivors to total passengers using `groupby()` and aggregation functions.
+
+2. **Calculate Survival Percentage Grouped by Gender and Class**:
+   - **Objective**: Analyze survival rates across gender and passenger class.
+   - **Method**: Perform a multi-level group-by operation on `gender` and `class`, then compute the survival rate for each combination.
+
+How to Run
+
+Prerequisites
+Make sure the following dependencies are installed:
+- Python 3.x
+- Jupyter Notebook
+- Pandas and other required libraries (e.g., NumPy, Matplotlib if needed).
+
+Steps to Run
+
+1. Clone this repository:
+   git clone https://github.com/yourusername/session-6-exercises.git
+   ```
+2. Navigate to the repository directory:
+   cd session-6-exercises
+3. Open the Jupyter Notebook:
+   jupyter notebook session_6.ipynb
+4. Follow the notebook instructions to complete the exercises.
+
+Sample Outputs
+
+- **Missing Rating Check**:
+  ```
+  Number of missing ratings: 12
+  ```
+
+- **Movies from 2021 in a Specific Country**:
+  ```
+  Number of movies in 2021 from 'USA': 45
+  ```
+
+- **Year with the Most Titles**:
+  ```
+  Year with the most titles: 2020, Total: 125
+  ```
+
+- **Gender-Based Survival Rate**:
+  ```
+  Female Survival Rate: 74.2%
+  Male Survival Rate: 18.9%
+  ```
