@@ -1,1 +1,111 @@
+Session 7: Advanced Data Manipulation with Pandas
+
+Overview
+
+This session focuses on advanced data manipulation techniques in Pandas. The exercises highlight how to use **lambda functions**, **map**, and **apply** for data transformation and feature engineering. Additionally, it explores handling missing data and applying transformations to enhance datasets for analysis.
+
+
+Key Topics Covered
+
+1. **Lambda and Map**
+   - **Lambda**: Compact, anonymous functions used for quick operations.
+   - **Map**: Efficiently apply functions element-wise to Pandas Series.
+
+2. **Series Operations**
+   - Leveraging `apply` to transform or manipulate Series data.
+   - Extracting specific patterns or generating new columns based on existing data.
+
+3. **Advanced Data Manipulation**
+   - Creating new columns using transformations.
+   - Splitting and combining string data for enhanced feature engineering.
+
+4. **Handling Missing Data and Transformation**
+   - Identifying and dealing with missing values.
+   - Transforming data types and formats for consistency.
+
+---
+
+ Exercise: Creating New Features from String Data
+
+**Objective**
+- Use string manipulation and lambda functions to generate new columns in a DataFrame.
+- Understand how to transform existing data to create more informative features.
+
+**Tasks**
+
+1. **Create Initials for Each Professor**:
+   - **Objective**: Add a new column `professor_initials` containing the initials of each professor's first and last name.
+   - **Logic**: Use `apply` with a lambda function to split the professor's name and extract the first character of each part.
+
+   Example Code:
+   ```python
+   df['professor_initials'] = df['professor'].apply(lambda x: ''.join([name[0] for name in x.split()]))
+   ```
+
+   Output:
+   | Professor Name      | Professor Initials |
+   |---------------------|--------------------|
+   | Ludmila Kuncheva    | LK                 |
+   | Antonio Torralba    | AT                 |
+   | Manuel Gonzalez     | MG                 |
+   | Bastian Leibe       | BL                 |
+
+2. **Extract Last Name**:
+   - **Objective**: Add a new column `professor_last_name` containing the last name of each professor.
+   - **Logic**: Use `apply` with a lambda function to split the professor's name and retrieve the last part.
+
+   Example Code:
+   ```python
+   df['professor_last_name'] = df['professor'].apply(lambda x: x.split()[-1])
+   ```
+
+   Output:
+   | Professor Name      | Professor Last Name |
+   |---------------------|---------------------|
+   | Ludmila Kuncheva    | Kuncheva            |
+   | Antonio Torralba    | Torralba            |
+   | Manuel Gonzalez     | Gonzalez            |
+   | Bastian Leibe       | Leibe                
+
+How to Run
+
+Prerequisites
+
+- Python 3.x
+- Pandas library
+
+Steps
+
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/yourusername/session-7-advanced-pandas.git
+   ```
+2. Navigate to the repository folder:
+   ```sh
+   cd session-7-advanced-pandas
+   ```
+3. Open the Jupyter Notebook:
+   ```sh
+   jupyter notebook session_7.ipynb
+   ```
+4. Follow the instructions in the notebook to complete the exercises.
+
+
+Key Learnings
+
+- **Lambda Functions**: Compact, inline functions to simplify transformation tasks.
+- **Apply**: A powerful method to transform Series or DataFrame columns element-wise.
+- **Feature Engineering**: Extracting meaningful information from existing data to enhance analysis.
+
+
+Sample Output
+
+Final DataFrame after transformations:
+
+| Professor Name      | Department           | Age | Professor Initials | Professor Last Name |
+|---------------------|----------------------|-----|--------------------|---------------------|
+| Ludmila Kuncheva    | Computer Science    | 45  | LK                 | Kuncheva            |
+| Antonio Torralba    | Computer Vision     | 50  | AT                 | Torralba            |
+| Manuel Gonzalez     | AI & Robotics       | 47  | MG                 | Gonzalez            |
+| Bastian Leibe       | Autonomous Systems  | 38  | BL                 | Leibe               |
 
